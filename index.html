@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<meta name="keywords" content="前端开发,php,web,html,mysql,javascript,js,jquery,jq,css,git,经验分享">
+	<meta name="description" content="分享js,jq,html,css等web技术,记录mysql、php、git等学习笔记，分享自己的感悟和技术经验">
+	<title>淡忘~浅思-记录生活点滴，分享web技术。</title>
+	<link rel="shortcut icon" type="image/x-icon" href="img/my.ico" />
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./css/themes.css">
+	<link rel="stylesheet" type="text/css" href="./css/wzlb.css">
+	<link rel="stylesheet" href="./css/calendar.css" />
+	<!-- 引入js -->
+	<script type="text/javascript" src="./js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="./js/layout.js"></script>
+	<script type="text/javascript" src="./js/calendar.js"></script>
+	<!--viewport的meta标签，修正网页在移动设备中的显示-->
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<!--响应式布局css-->
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap-responsive.min.css">
+	<!--如果浏览器不支持HTML5(也可以用modernizer)，执行下面的代码-->
+	<!--[if lt IE 9]>
+	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body style="background:#F7F7F7">
+<div class="container-fluid">
+ <div class="yusi-logo" style="background-color:#1ABC9C;">
+                    <a href="/">
+                        <h1>
+                                                        <span class="yusi-mono">淡忘~浅思</span>
+                                                        <span class="yusi-bloger">
+                                                        	简单的静态博客
+                                                        </span>
+                                                    </h1>
+                    </a>
+    </div>
+</div>
+<div class="container-fluid">
+	<!--header部分,流动布局-->
+	<div class="navbar navbar-inverse">
+		<div class="navbar-inner">
+			<ul class="nav brand">
+				<a class="brand" href="index.html" title="淡忘~浅思-记录生活点滴，分享web技术" style="margin-top:0.5em">淡忘~浅思</a>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						前端
+						<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu" id="submenu">
+						<li><a href="#">JQuery</a></li>
+						<li><a href="#">JavaScript</a></li>
+						<li><a href="#">CSS</a></li>
+						<li><a href="#">HTML</a></li>
+					</ul>
+				</li>
+				<li><a href="#">PHP</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						Web
+						<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu" id="submenu">
+						<li><a href="#">Ajax</a></li>
+						<li><a href="#">JSON</a></li>
+						<li><a href="#">Internet</a></li>
+					</ul>
+				</li>
+				<li><a href="#">MySql</a></li>
+				<li><a href="#">Git</a></li>
+				<li><a href="#">程序人生</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						我的生活
+						<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu" id="submenu">
+						<li><a href="#">我的College</a></li>
+						<li><a href="#">我的Sentiment</a></li>
+						<li><a href="#">我的Review</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						其他页面
+						<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu" id="submenu">
+						<li><a href="#">文章分享</a></li>
+						<li><a href="#">关于我</a></li>
+					</ul>
+				</li>
+			</ul>
+		   	<form class="navbar-search">
+				<input type="text" class="search-query" placeholder="Search">
+				<button type="submit" class="btn btn-primary">搜索</button>
+				<button type="button" class="btn" id="userlogin" data-toggle="modal" data-target="#login">登陆</button>
+			</form> 
+			<!-- <a href="login.html" class="btn" data-toggle="modal" data-target="#login" 
+			style="margin-top:17px;float:right">登陆</a> -->
+		</div>
+	</div>
+	<!-- 登陆 -->
+	<div id="login" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="myModalLabel">用户登陆</h3>
+		</div>
+		<div class="modal-body">
+			<div style="text-align:center">
+				<div class="control-group">
+					<label class="control-label" for="inputLogin">昵称<span id="tips1" style="color:red">(数字和字母且长度小于6)</span></label>
+					<div class="controls input-prepend">
+						<span class="add-on">@</span>
+						<input type="text" id="inputLogin" placeholder="昵称(必填)">
+					</div>
+			    </div>
+				<div class="control-group">
+					<label class="control-label" for="inputPassword">密码<span id="tips2" style="color:red"></span></label>
+					<div class="controls input-prepend">
+						<span class="add-on"><i class="icon-user"></i></span>
+						<input type="password" id="inputPassword" placeholder="(必填)">
+					</div>
+				</div>
+				<div class="control-group">
+			    	<div class="controls">
+					    <button type="submit" class="btn btn-primary" id="login_btn">登陆</button>
+					    <button type="button" class="btn" data-dismiss="modal" aria-hidden="true" id="closeBtn">退出</button>
+				    </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+	<!-- end -->
+	<div class="row-fluid">
+		<div class="span12">
+			 <div class="span6" style="font-family:Microsoft Yahei;">
+				 <span style="color:#27C40D;margin-left:3.0em;">最新消息</span>:欢迎光临<a href="http://yuankang.sinaapp.com" title="yuankang.sinaapp.com" style="color:blue;text-decoration:none">淡忘~浅思</a>的个人博客，该博客主要记录、积累、分享博主的Web技术知识。
+			 </div>
+			 <div class="span3 offset3">
+			 <!--百度分享 开始-->
+			 	<div class="bdsharebuttonbox">
+			 		<a href="#" class="bds_more" data-cmd="more"></a><a title="分享到一键分享" href="#" class="bds_mshare" data-cmd="mshare"></a><a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone"></a><a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a><a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a><a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren"></a><a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin"></a><a title="分享到QQ好友" href="#" class="bds_sqq" data-cmd="sqq"></a><a title="分享到有道云笔记" href="#" class="bds_youdao" data-cmd="youdao"></a><a title="分享到百度空间" href="#" class="bds_hi" data-cmd="hi"></a>
+			 	</div>
+				<script>
+					window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["mshare","qzone","tsina","tqq","renren","weixin","sqq","youdao","hi"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["mshare","qzone","tsina","tqq","renren","weixin","sqq","youdao","hi"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+				</script>
+			 </div>
+			 <!--百度分享 结束-->
+		</div>
+	</div>
+
+	<!--body部分-->
+	<div class="row-fluid" id="divide">
+	    <!--文章列表-->
+		<div class="span9">
+			<div class="artical">
+				<!-- Post Title -->
+				<h3><a href="single.html">JQuery和Bootstrap简介</a></h3>
+				<!-- Post Data -->
+				<p style="margin-left: 20px;">
+					<i class="icon-user"></i> dwqs <i class="icon-tags"></i> <a href="#">Jq</a>, <a href="#">bootstrap</a> <i class="icon-time"></i> 2014-08-07 18:23 <i class="icon-eye-open"></i> 20人阅读 <i class="icon-comment"></i> <a href="#">5评论</a>
+				</p>
+				<div>
+					<!-- Post Image -->
+					<a href="single.html">
+						<img class="img-rounded" alt="缩略图" src="img/01.jpg" />
+					</a>
+					<!-- Post Content -->
+					<span class="postcontent">
+						JQuery:Jquery是继prototype之后又一个优秀的Javascript框架。它是轻量级的js库 ，它兼容CSS3，还兼容各种浏览器（IE 6.0+, FF 1.5+, Safari 2.0+, Opera 9.0+），jQuery2.0及后续版本将不再支持IE6/7/8浏览器。jQuery使用户能更方便地处理HTML（标准通用标记语言下的一个应用）、events、实现动画效果，并且方便地为网站提供AJAX交互。jQuery还有一个比较大的优势是，它的文档说明很全，而且各种应用也说得很详细，同时还有许多成熟的插件可供选择。jQuery能够使用户的html页面保持代码和html内容分离，也就是说，不用再在html里面插入一堆js来调用命令了，只需定义id即可。
+					
+						Bootstrap:
+						Bootstrap是Twitter推出的一个开源的用于前端开发的工具包。它由Twitter的设计师Mark Otto和Jacob Thornton合作开发，是一个CSS/HTML框架。Bootstrap提供了优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。Bootstrap一经推出后颇受欢迎，一直是GitHub上的热门开源项目，包括NASA的MSNBC（微软全国广播公司）的Breaking News都使用了该项目。
+					</span>
+				</div>
+				<!-- Read More Button -->
+				<p style="text-align:right;padding-top:10px">
+					<a href="single.html" class="btn btn-large btn-primary">阅读更多</a>
+				</p>
+			</div>
+			<div class="artical">
+				<!-- Post Title -->
+				<h3><a href="single.html">JQuery和Bootstrap简介</a></h3>
+				<!-- Post Data -->
+				<p style="margin-left: 20px;">
+					<i class="icon-user"></i> dwqs <i class="icon-tags"></i> <a href="#">Jq</a>, <a href="#">bootstrap</a> <i class="icon-time"></i> 2014-08-07 18:23 <i class="icon-eye-open"></i> 20人阅读 <i class="icon-comment"></i> <a href="#">5评论</a>
+				</p>
+				<div>
+					<!-- Post Image -->
+					<a href="single.html">
+						<img class="img-rounded" alt="缩略图" src="img/01.jpg" />
+					</a>
+					<!-- Post Content -->
+					<span class="postcontent">
+						JQuery:Jquery是继prototype之后又一个优秀的Javascript框架。它是轻量级的js库 ，它兼容CSS3，还兼容各种浏览器（IE 6.0+, FF 1.5+, Safari 2.0+, Opera 9.0+），jQuery2.0及后续版本将不再支持IE6/7/8浏览器。jQuery使用户能更方便地处理HTML（标准通用标记语言下的一个应用）、events、实现动画效果，并且方便地为网站提供AJAX交互。jQuery还有一个比较大的优势是，它的文档说明很全，而且各种应用也说得很详细，同时还有许多成熟的插件可供选择。jQuery能够使用户的html页面保持代码和html内容分离，也就是说，不用再在html里面插入一堆js来调用命令了，只需定义id即可。
+					
+						Bootstrap:
+						Bootstrap是Twitter推出的一个开源的用于前端开发的工具包。它由Twitter的设计师Mark Otto和Jacob Thornton合作开发，是一个CSS/HTML框架。Bootstrap提供了优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。Bootstrap一经推出后颇受欢迎，一直是GitHub上的热门开源项目，包括NASA的MSNBC（微软全国广播公司）的Breaking News都使用了该项目。
+					</span>
+				</div>
+				<!-- Read More Button -->
+				<p style="text-align:right;padding-top:10px">
+					<a href="single.html" class="btn btn-large btn-primary">阅读更多</a>
+				</p>
+			</div>
+			<div class="artical">
+				<!-- Post Title -->
+				<h3><a href="single.html">JQuery和Bootstrap简介</a></h3>
+				<!-- Post Data -->
+				<p style="margin-left: 20px;">
+					<i class="icon-user"></i> dwqs <i class="icon-tags"></i> <a href="#">Jq</a>, <a href="#">bootstrap</a> <i class="icon-time"></i> 2014-08-07 18:23 <i class="icon-eye-open"></i> 20人阅读 <i class="icon-comment"></i> <a href="#">5评论</a>
+				</p>
+				<div>
+					<!-- Post Image -->
+					<a href="single.html">
+						<img class="img-rounded" alt="缩略图" src="img/01.jpg" />
+					</a>
+					<!-- Post Content -->
+					<span class="postcontent">
+						JQuery:Jquery是继prototype之后又一个优秀的Javascript框架。它是轻量级的js库 ，它兼容CSS3，还兼容各种浏览器（IE 6.0+, FF 1.5+, Safari 2.0+, Opera 9.0+），jQuery2.0及后续版本将不再支持IE6/7/8浏览器。jQuery使用户能更方便地处理HTML（标准通用标记语言下的一个应用）、events、实现动画效果，并且方便地为网站提供AJAX交互。jQuery还有一个比较大的优势是，它的文档说明很全，而且各种应用也说得很详细，同时还有许多成熟的插件可供选择。jQuery能够使用户的html页面保持代码和html内容分离，也就是说，不用再在html里面插入一堆js来调用命令了，只需定义id即可。
+					
+						Bootstrap:
+						Bootstrap是Twitter推出的一个开源的用于前端开发的工具包。它由Twitter的设计师Mark Otto和Jacob Thornton合作开发，是一个CSS/HTML框架。Bootstrap提供了优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。Bootstrap一经推出后颇受欢迎，一直是GitHub上的热门开源项目，包括NASA的MSNBC（微软全国广播公司）的Breaking News都使用了该项目。
+					</span>
+				</div>
+				<!-- Read More Button -->
+				<p style="text-align:right;padding-top:10px">
+					<a href="single.html" class="btn btn-large btn-primary">阅读更多</a>
+				</p>
+			</div>
+			<div class="artical">
+				<!-- Post Title -->
+				<h3><a href="single.html">JQuery和Bootstrap简介</a></h3>
+				<!-- Post Data -->
+				<p style="margin-left: 20px;">
+					<i class="icon-user"></i> dwqs <i class="icon-tags"></i> <a href="#">Jq</a>, <a href="#">bootstrap</a> <i class="icon-time"></i> 2014-08-07 18:23 <i class="icon-eye-open"></i> 20人阅读 <i class="icon-comment"></i> <a href="#">5评论</a>
+				</p>
+				<div>
+					<!-- Post Image -->
+					<a href="single.html">
+						<img class="img-rounded" alt="缩略图" src="img/01.jpg" />
+					</a>
+					<!-- Post Content -->
+					<span class="postcontent">
+						JQuery:Jquery是继prototype之后又一个优秀的Javascript框架。它是轻量级的js库 ，它兼容CSS3，还兼容各种浏览器（IE 6.0+, FF 1.5+, Safari 2.0+, Opera 9.0+），jQuery2.0及后续版本将不再支持IE6/7/8浏览器。jQuery使用户能更方便地处理HTML（标准通用标记语言下的一个应用）、events、实现动画效果，并且方便地为网站提供AJAX交互。jQuery还有一个比较大的优势是，它的文档说明很全，而且各种应用也说得很详细，同时还有许多成熟的插件可供选择。jQuery能够使用户的html页面保持代码和html内容分离，也就是说，不用再在html里面插入一堆js来调用命令了，只需定义id即可。
+					
+						Bootstrap:
+						Bootstrap是Twitter推出的一个开源的用于前端开发的工具包。它由Twitter的设计师Mark Otto和Jacob Thornton合作开发，是一个CSS/HTML框架。Bootstrap提供了优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。Bootstrap一经推出后颇受欢迎，一直是GitHub上的热门开源项目，包括NASA的MSNBC（微软全国广播公司）的Breaking News都使用了该项目。
+					</span>
+				</div>
+				<!-- Read More Button -->
+				<p style="text-align:right;padding-top:10px">
+					<a href="single.html" class="btn btn-large btn-primary">阅读更多</a>
+				</p>
+			</div>
+			<!-- 分页 -->
+		    <div class="pagination pagination-large pagination-centered" >
+				<ul>
+					<li><a href="#">上一页</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">...</a></li>
+					<li><a href="#">11</a></li>
+					<li><a href="#">12</a></li>
+					<li><a href="#">13</a></li>
+					<li><a href="#">下一页</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<!--右边Sidebar-->
+		<div class="span3">
+			<div class="span12 shadow">
+				<h3 style="background-color:#AAA0A0;margin-top:0px;">博客公告</h3>
+				<p>
+					本静态博客以jq+bs+css3构成，仅供学习交流使用。若打开页面出现混乱的现象，请更新您的浏览器版本，或者使用IE9+、Google等主流浏览器，他们均支持H5+C3.欢迎交流。能力有限，在响应式方面存在的bug敬请谅解，谢谢！
+				</p>
+			</div>
+			<div class="span12 shadow" style="margin-top:10px;margin-left:0;">
+				<h3 style="background-color:#AAA0A0;margin-top:0px;">邮件订阅</h3>
+				<p>订阅精彩内容</p>
+			    <div class="input-append" >
+				    <input class="span10" style="margin-left:1.8em" id="appendedInputButtons" type="text" placeholder="邮箱">
+				    <button class="btn btn-primary" type="button">订阅</button>
+			    </div>
+			</div>
+			<div class="span12 shadow" style="margin-top:10px;margin-left:0;">
+				<h3 style="background-color:#AAA0A0;margin-top:0px;">近期文章</h3>
+				<!-- <ul>
+					<li><a href="single.html">JQuery和Bootstrap简介1</a></li>
+					<li><a href="single.html">JQuery和Bootstrap简介2</a></li>
+					<li><a href="single.html">JQuery和Bootstrap简介3</a></li>
+					<li><a href="single.html">JQuery和Bootstrap简介4</a></li>
+					<li><a href="single.html">JQuery和Bootstrap简介5</a></li>
+					<li><a href="single.html">JQuery和Bootstrap简介6</a></li>
+					<li><a href="single.html">JQuery和Bootstrap简介7</a></li>
+					<li><a href="single.html">JQuery和Bootstrap简介8</a></li>
+					<li><a href="single.html">JQuery和Bootstrap简介9</a></li>
+					<li><a href="single.html">JQuery和Bootstrap简介10</a></li>
+				</ul> -->
+				<ul style="margin-left:-40px">	
+					<p><a href="single.html">JQuery和Bootstrap简介1</a></p>
+					<p><a href="single.html">JQuery和Bootstrap简介2</a></p>
+					<p><a href="single.html">JQuery和Bootstrap简介3</a></p>
+					<p><a href="single.html">JQuery和Bootstrap简介4</a></p>
+					<p><a href="single.html">JQuery和Bootstrap简介5</a></p>
+					<p><a href="single.html">JQuery和Bootstrap简介6</a></p>
+				</ul>
+			</div>
+			<div class="span12 shadow" style="margin-top:10px;margin-left:0;">
+				<h3 style="background-color:#AAA0A0;margin-top:0px;">标签云</h3>
+					<div class="biaoqian">
+						<a href="single.html" class="btn btn-info">Jq,Bootstrap</a>
+						<a href="single.html" class="btn btn-primary">Jq,Bootstrap</a>
+						<a href="single.html" class="btn tn-success">Jq,Bootstrap</a>
+						<a href="single.html" class="btn btn-warning">Jq,Bootstrap</a>
+						<a href="single.html" class="btn btn-danger">Jq,Bootstrap</a>
+						<a href="single.html" class="btn btn-inverse">Jq,Bootstrap</a>
+						<a href="single.html" class="btn btn-primary">Jq,Bootstrap</a>
+						<a href="single.html" class="btn tn-success">Jq,Bootstrap</a>
+						<a href="single.html" class="btn btn-warning">Jq,Bootstrap</a>
+						<a href="single.html" class="btn btn-primary">Jq,Bootstrap</a>
+					</div>
+				</ul>
+			</div>
+			<div class="span12 shadow" style="margin-top:10px;margin-left:0;">
+				<h3 style="background-color:#AAA0A0;margin-top:0px;">博客日历</h3>
+				<div id="datepicker" style="margin:15px;" class="shadow"></div>
+				<script type="text/javascript">
+					$( "#datepicker" ).datepicker(
+						{
+							showMonthAfterYear:true,
+							yearSuffix:"年",	
+							prevText:"上一月",
+							nextText:"下一月",
+							monthNames:["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月",],
+							dayNamesMin:["日","一","二","三","四","五","六",],
+							dateFormat:"yy-mm-dd",
+						});
+				</script>
+			</div>
+		</div>	
+		<!-- end -->
+	</div>
+</div>
+<!--引入bootstrap.js-->
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap-dropdown.js"></script>
+</body>
+</html>
