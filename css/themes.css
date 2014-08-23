@@ -1,0 +1,166 @@
+
+#submenu
+{
+	background-color: #171717;
+}
+#submenu>li>a
+{
+	color: white;
+	padding-bottom: 15px;
+}
+.yusi-logo
+{
+	display:block;
+	text-align:center;
+}
+.yusi-logo h1
+{
+	display:inline-block;
+	padding:30px 0 20px 0;
+	cursor:pointer;
+	font-family:"华文行楷","Microsoft Yahei",arial,sans-serif;
+	font-weight:100;
+	color: black;
+}
+.yusi-mono{font-size: 54px;}
+.yusi-bloger{font-size: 24px;}
+.yusi-logo h1:hover .yusi-mono
+{
+	letter-spacing:5px;
+}
+.yusi-logo h1:hover .yusi-bloger
+{
+	left:26px;
+	opacity:.2;
+}
+/*body部分*/
+#divide
+{
+	margin-top: 15px;
+}
+.artical
+{
+	border:5px solid white;
+	background:#FFF;
+	padding: 10px;
+	margin-bottom: 20px;
+	box-shadow: 4px 4px #ccc;
+	-webkit-box-shadow:4px 4px #ccc;
+	-moz-box-shadow: 4px 4px #ccc;
+}
+.artical:hover
+{
+	border-left: 5px solid blue;
+}
+.artical h3 a:hover
+{
+	text-decoration: none;
+}
+.artical img
+{
+	height:164px;
+	float:left
+}
+.artical div span
+{
+	text-indent: 2em;
+	line-height: 24px;
+	height: 145px;
+	width: 730px;
+	margin-left: 20px;
+	/*overflow属性支持块级元素 */
+}
+.shadow
+{
+	box-shadow: 4px 4px #ccc;
+	-webkit-box-shadow:4px 4px #ccc;
+	-moz-box-shadow: 4px 4px #ccc;
+	background-color: #FFFFFF;
+}
+.shadow p
+{
+	margin-left: 15px;
+	line-height: 23px;
+	text-indent: 1em;
+
+}
+ul,li
+{
+	list-style: none outside none;
+}
+li
+{
+	line-height: 35px;
+}
+li a:hover
+{
+	color: #00A67C;
+	text-decoration: none;
+}
+.biaoqian
+{
+/*	margin-left: .5em;*/
+	margin-bottom: 2em;
+	text-align: center;
+}
+.biaoqian a
+{
+	margin-top: 5px;
+	padding-left: 1em;
+	margin-left: 1em;
+}
+
+/* star */
+#star {
+	position: relative;
+	width: 600px;
+	/*margin: 20px auto;*/
+	height: 24px;
+/*	border: 1px solid red;*/
+	list-style-type: none;
+}
+
+#star ul,#star span {
+	float: left;
+	display: inline;
+	height: 19px;
+	line-height: 19px;
+}
+
+#star ul {
+	margin: 0 -630px;
+}
+
+#star li {
+	float: left;
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+	text-indent: -9999px;
+	background: url(../img/star.png) no-repeat;
+}
+
+#star strong {
+	color: #f60;
+	padding-left: 10px;
+}
+
+#star li.on {
+	background-position: 0 -28px;
+}
+
+#star p {
+	position: absolute;
+	top: 20px;
+	width: 169px;
+	height: 65px;
+	display: none;
+	background: url(../img/icon.gif) no-repeat;
+	padding: 7px 10px 0;
+}
+
+#star p em {
+	color: #f60;
+	display: block;
+	font-style: normal;
+}
